@@ -104,27 +104,18 @@ public class FaceRecognizer {
 
 		IntPointer label = new IntPointer(1);
 		DoublePointer confidence = new DoublePointer(0);
-		
- 
+
 		this.faceRecognizer.predict(faces, label, confidence);
-		
-		 
+
 		int predictedLabel = label.get(0);
-			
-	 
 		 
 		//System.out.println(confidence.get(0));
-		
- 
-	
+
 		//Confidence value less than 60 means face is known 
 		//Confidence value greater than 60 means face is unknown 
-		 if(confidence.get(0) > 60)
-		 {
-			 //System.out.println("-1");
+		 if(confidence.get(0) > 40) {
 			 return -1;
 		 }
-
 		return predictedLabel;
 
 	}

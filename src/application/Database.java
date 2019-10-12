@@ -81,9 +81,6 @@ class Database {
 		ArrayList<String> user = new ArrayList<String>();
 
 		try {
-
-			Database app = new Database();
-
 			String sql = "select * from face_bio where code=" + inCode + " limit 1";
 
 			Statement s = con.createStatement();
@@ -104,21 +101,6 @@ class Database {
 				user.add(3, Integer.toString(rs.getInt(5)));
 				user.add(4, Integer.toString(rs.getInt(6)));
 				user.add(5, rs.getString(7));
-
-				/*
-				 * System.out.println(app.getCode());
-				 * System.out.println(app.getFname());
-				 * System.out.println(app.getLname());
-				 * System.out.println(app.getReg());
-				 * System.out.println(app.getAge());
-				 * System.out.println(app.getSec());
-				 */
-
-				// nString="Name:" + rs.getString(3)+" "+rs.getString(4) +
-				// "\nReg:" + app.getReg() +"\nAge:"+app.getAge() +"\nSection:"
-				// +app.getSec() ;
-
-				// System.out.println(nString);
 			}
 
 			con.close(); // closing connection
